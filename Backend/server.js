@@ -8,6 +8,7 @@ dotenv.config();
 // internal imports
 import authRoutes from './routes/authRoutes.js';
 import logRoutes from './routes/logRoutes.js';
+import { protect } from './middleware/auth.js';
 
 const app = express();
 app.use(cors());
@@ -21,7 +22,7 @@ mongoose
 
 // routes
 app.use('/api/auth', authRoutes);
-app.use('/api/logs', logRoutes);
+app.use('/api/logs', protect, logRoutes);
 
 // port
 const PORT = process.env.PORT || 5000;
