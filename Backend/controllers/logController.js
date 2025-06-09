@@ -31,7 +31,6 @@ export const updateLog = async (req, res) => {
 		if (!log || log.user.toString() !== req.user.id) {
 			return res.status(401).json({ message: 'Unauthorized' });
 		}
-
 		// update log
 		const updatedLog = await Log.findByIdAndUpdate(req.params.id, req.body, { new: true });
 		res.json(updatedLog);
