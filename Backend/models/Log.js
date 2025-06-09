@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 
+// define log schema
 const logSchema = new mongoose.Schema(
 	{
 		title: String,
