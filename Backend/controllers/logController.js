@@ -1,7 +1,7 @@
 import Log from '../models/Log.js';
 
 // get logs
-export const getLog = async (req, res) => {
+export const getLogs = async (req, res) => {
 	try {
 		const logs = await Log.find({ user: req.user.id });
 
