@@ -1,4 +1,4 @@
-import express, { Router } from 'express';
+import express from 'express';
 
 // internal imports
 import { registerUser, loginUser } from '../controllers/authController.js';
