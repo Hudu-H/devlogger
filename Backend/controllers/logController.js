@@ -1,7 +1,7 @@
 import Log from '../models/Log.js';
 
 // get logs
-export const getLogs = async (req, res) => {
+export const getLog = async (req, res) => {
 	try {
 		const logs = await Log.find({ user: req.user.id });
 
@@ -40,7 +40,7 @@ export const updateLog = async (req, res) => {
 };
 
 // delete log
-export const deletLog = async (req, res) => {
+export const deleteLog = async (req, res) => {
 	try {
 		const log = await Log.findById(req.params.id);
 
