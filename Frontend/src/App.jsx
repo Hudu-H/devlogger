@@ -7,7 +7,6 @@ import { Dashboard, Login, Register } from '.';
 function App() {
 	return (
 		<Routes>
-			<h1 className="text-3xl font-bold text-blue-500">Tailwind Test</h1>
 			<Route path="/" element={<Login />} />
 			<Route path="/register" element={<Register />} />
 			<Route element={<PrivateRoute />}>
