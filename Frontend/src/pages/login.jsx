@@ -26,17 +26,26 @@ function Login() {
 	}
 
 	return (
-		<form onSubmit={handleSubmit} className="max-w-sm mx-auto mt-20 space-y-4">
-			<input type="email" onChange={handleChange} placeholder="" className="w-full" p-2 border />
+		<form onSubmit={handleSubmit} className="max-w-sm mx-auto mt-20 w-[400px] space-y-4">
+			<h3 className="text-center text-blue-700 text-xl font-semibold">Login to Dashboard</h3>
+
+			<input
+				type="email"
+				onChange={handleChange}
+				placeholder="Email"
+				className="w-full p-2 border border-gray-300 rounded"
+			/>
+
 			<input
 				type="password"
 				onChange={handleChange}
-				placeholder="password"
-				className="w-full"
-				p-2
-				border
+				placeholder="Password"
+				className="w-full p-2 border border-gray-300 rounded"
 			/>
-			<button className="w-full bg-blue-500 text-white p-2">Login</button>
+
+			<button className="w-full bg-blue-500 hover:bg-blue-600 text-white p-2 rounded transition">
+				Login
+			</button>
 		</form>
 	);
 }
