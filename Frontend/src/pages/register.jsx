@@ -1,53 +1,43 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
-function Register() {
-	const [form, setForm] = useState({ email: '', password: '' });
+export default function Register() {
+	const [form, setForm] = useState({ name: '', email: '', password: '' });
 	const navigate = useNavigate();
 
-	// handleChange
-	function handleChange(e) {
-		e.preventDefault();
-		setForm({ ...form, [e.target.name]: e.target.value });
-	}
+	// handle form change
+	const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
-	// handleSubmit
-	async function handleSubmit(e) {
+	// handle submit
+	const handleSubmit = async (e) => {
 		e.preventDefault();
-
 		try {
-			const res = await axios.post('http://localhost:5000/api/auth/login', form);
+			const res = await axios.post('http://localhost:5000/api/auth/register', form);
 			localStorage.setItem('token', res.data.token);
 			navigate('/dashboard');
-		} catch (error) {
-			alert('login failed, try again', error);
+		} catch (err) {
+			alert('Registration failed', err);
 		}
-	}
+	};
 
 	return (
-		<form onSubmit={handleSubmit} className="max-w-sm mx-auto mt-20 w-[400px] space-y-4">
-			<h3 className="text-center text-blue-700 text-xl font-semibold">Register</h3>
-
+		<form onSubmit={handleSubmit} className="max-w-sm mx-auto mt-20 space-y-4">
+			<input name="name" onChange={handleChange} placeholder="Name" className="w-full p-2 border" />
 			<input
-				type="email"
+				name="email"
 				onChange={handleChange}
 				placeholder="Email"
-				className="w-full p-2 border border-gray-300 rounded"
+				className="w-full p-2 border"
 			/>
-
 			<input
-				type="password"
+				name="password"
 				onChange={handleChange}
 				placeholder="Password"
-				className="w-full p-2 border border-gray-300 rounded"
+				type="password"
+				className="w-full p-2 border"
 			/>
-
-			<button className="w-full bg-blue-500 hover:bg-blue-600 text-white p-2 rounded transition">
-				Login
-			</button>
+			<button className="w-full bg-green-500 text-white p-2">Register</button>
 		</form>
 	);
 }
-
-export default Register;
