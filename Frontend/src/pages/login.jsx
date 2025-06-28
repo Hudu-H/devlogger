@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 
 function Login() {
@@ -21,7 +21,7 @@ function Login() {
 			localStorage.setItem('token', res.data.token);
 			navigate('/dashboard');
 		} catch (error) {
-			alert('login failed, try again', error);
+			alert('Login failed. Please try again.');
 		}
 	}
 
@@ -30,12 +30,16 @@ function Login() {
 			<h3 className="text-center text-blue-700 text-xl font-semibold">Login to Dashboard</h3>
 			<input
 				type="email"
+				name="email"
+				value={form.email}
 				onChange={handleChange}
 				placeholder="Email"
 				className="w-full p-2 border border-gray-300 rounded"
 			/>
 			<input
 				type="password"
+				name="password"
+				value={form.password}
 				onChange={handleChange}
 				placeholder="Password"
 				className="w-full p-2 border border-gray-300 rounded"
@@ -43,6 +47,13 @@ function Login() {
 			<button className="w-full bg-blue-500 hover:bg-blue-600 text-white p-2 rounded transition">
 				Login
 			</button>
+
+			<p className="text-center text-sm">
+				Don’t have an account?{' '}
+				<Link to="/signup" className="text-blue-600 hover:underline">
+					Sign up here
+				</Link>
+			</p>
 		</form>
 	);
 }
