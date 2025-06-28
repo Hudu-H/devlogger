@@ -2,7 +2,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-export default function Register() {
+export default function SignUp() {
 	const [form, setForm] = useState({ name: '', email: '', password: '' });
 	const navigate = useNavigate();
 
@@ -13,11 +13,11 @@ export default function Register() {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			const res = await axios.post('http://localhost:5000/api/auth/register', form);
+			const res = await axios.post('http://localhost:5000/api/auth/signup', form);
 			localStorage.setItem('token', res.data.token);
 			navigate('/dashboard');
 		} catch (err) {
-			alert('Registration failed', err);
+			alert('Signup failed', err);
 		}
 	};
 
@@ -37,7 +37,7 @@ export default function Register() {
 				type="password"
 				className="w-full p-2 border"
 			/>
-			<button className="w-full bg-green-500 text-white p-2">Register</button>
+			<button className="w-full bg-green-500 text-white p-2">Sign Up</button>
 		</form>
 	);
 }
