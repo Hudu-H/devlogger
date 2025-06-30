@@ -11,7 +11,18 @@ import logRoutes from './routes/logRoutes.js';
 import { protect } from './middleware/auth.js';
 
 const app = express();
-app.use(cors());
+
+// CORS from frontend origin
+const allowedOrigins = ['http://localhost:5173'];
+app.use(
+	cors({
+		origin: allowedOrigins, // Your frontend origin
+		methods: ['GET', 'POST', 'PUT', 'DELETE'],
+		allowedHeaders: ['Content-Type', 'Authorization'],
+		credentials: true, // auth headers
+	})
+);
+
 app.use(express.json());
 
 // connect to database
