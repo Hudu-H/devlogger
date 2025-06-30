@@ -8,7 +8,6 @@ function Login() {
 
 	// handleChange
 	function handleChange(e) {
-		e.preventDefault();
 		setForm({ ...form, [e.target.name]: e.target.value });
 	}
 
@@ -21,7 +20,7 @@ function Login() {
 			localStorage.setItem('token', res.data.token);
 			navigate('/dashboard');
 		} catch (error) {
-			alert('Login failed. Please try again.');
+			alert('Login failed. Please try again.', error);
 		}
 	}
 

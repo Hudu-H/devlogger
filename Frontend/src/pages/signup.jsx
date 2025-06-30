@@ -17,18 +17,26 @@ export default function SignUp() {
 			localStorage.setItem('token', res.data.token);
 			navigate('/dashboard');
 		} catch (err) {
-			alert('Signup failed', err);
+			alert('Signup failed: ' + (err.response?.data?.message || err.message));
 		}
 	};
 
 	return (
-		<form onSubmit={handleSubmit} className="max-w-sm mx-auto mt-20 space-y-4">
-			<input name="name" onChange={handleChange} placeholder="Name" className="w-full p-2 border" />
+		<form
+			onSubmit={handleSubmit}
+			className="max-w-sm mx-auto mt-20 w-[400px] space-y-6 flex items-center justify-center min-h-screen flex-col"
+		>
+			<input
+				name="name"
+				onChange={handleChange}
+				placeholder="Name"
+				className="w-full p-8 border m-4"
+			/>
 			<input
 				name="email"
 				onChange={handleChange}
 				placeholder="Email"
-				className="w-full p-2 border"
+				className="w-full p-2 border m-6"
 			/>
 			<input
 				name="password"
