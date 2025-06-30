@@ -22,7 +22,7 @@ export const signupUser = async (req, res) => {
 
 		res.status(201).json({ id: user._id, name: user.name, email: user.email, token });
 	} catch (error) {
-		res.staus(500).json({ message: 'server error' });
+		res.status(500).json({ message: 'server error' });
 	}
 };
 

@@ -26,4 +26,4 @@ app.use('/api/logs', protect, logRoutes);
 
 // port
 const PORT = process.env.PORT || 5000;
-app.listen(() => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

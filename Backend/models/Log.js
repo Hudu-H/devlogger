@@ -10,7 +10,7 @@ const logSchema = new mongoose.Schema(
 			default: Date.now,
 		},
 		tags: [String],
-		User: {
+		user: {
 			type: mongoose.Schema.Types.ObjectId,
 			ref: 'User',
 			required: true,
