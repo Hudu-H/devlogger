@@ -4,6 +4,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import PrivateRoute from './components/PrivateRoute.jsx';
 import { Dashboard, Login, SignUp } from '.';
 import { isAuthenticated } from './services/auth.js';
+import './index.css';
 
 function App() {
 	return (
