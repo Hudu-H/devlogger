@@ -25,7 +25,10 @@ function Login() {
 	}
 
 	return (
-		<form onSubmit={handleSubmit} className="max-w-sm mx-auto mt-20 w-[400px] space-y-4">
+		<form
+			onSubmit={handleSubmit}
+			className="max-w-sm mx-auto mt-20 w-[400px] space-y-6 flex items-center justify-center min-h-screen flex-col"
+		>
 			<h3 className="text-center text-blue-700 text-xl font-semibold">Login to Dashboard</h3>
 			<input
 				type="email"

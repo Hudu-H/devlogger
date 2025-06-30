@@ -15,7 +15,7 @@ export default function SignUp() {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			const res = await API.post('/auth/signup', form);
+			const res = await API.post('/signup', form);
 			localStorage.setItem('token', res.data.token);
 			navigate('/dashboard');
 		} catch (err) {
@@ -28,6 +28,7 @@ export default function SignUp() {
 			onSubmit={handleSubmit}
 			className="max-w-sm mx-auto mt-20 w-[400px] space-y-6 flex items-center justify-center min-h-screen flex-col"
 		>
+			<h3 className="text-center text-blue-700 text-xl font-semibold">Sign up</h3>
 			<input
 				name="name"
 				onChange={handleChange}
