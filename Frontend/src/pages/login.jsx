@@ -44,6 +44,7 @@ function Login() {
 				value={form.password}
 				onChange={handleChange}
 				placeholder="Password"
+				autoComplete="false"
 				className="w-full p-2 border border-gray-300 rounded"
 			/>
 			<button className="w-full bg-blue-500 hover:bg-blue-600 text-white p-2 rounded transition">
